@@ -3,7 +3,11 @@ package com.github.akhuntsaria.authservice.controller;
 import com.github.akhuntsaria.authservice.dto.ErrorDto;
 import com.github.akhuntsaria.authservice.dto.JwtParseRequestDto;
 import com.github.akhuntsaria.authservice.dto.JwtParseResponseDto;
+import com.github.akhuntsaria.authservice.dto.LoginUserDetails;
 import com.github.akhuntsaria.authservice.service.JwtService;
+
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -38,4 +42,16 @@ public class JwtController {
             return new ResponseEntity<>(new ErrorDto(ex.getLocalizedMessage()), HttpStatus.UNAUTHORIZED);
         }
     }
+    
+    @PostMapping("/register-new-user")
+	public ArrayList<LoginUserDetails> registerNewUser(@RequestBody LoginUserDetails loginUserDetails) {
+		ArrayList<LoginUserDetails> loginUsers = new ArrayList<>();
+		LoginUserDetails details=new LoginUserDetails();
+		details.setUsername("kolli");
+		details.setPassword("naren");
+		String[] roles=new String[2];
+		roles[0]="admin";
+		roles[1]="user";
+		return loginUsers;
+	}
 }

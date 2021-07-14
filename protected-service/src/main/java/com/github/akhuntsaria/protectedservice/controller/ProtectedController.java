@@ -25,7 +25,7 @@ public class ProtectedController {
             responseBody = linkWithSensitiveData;
         }
 
-        return new ResponseEntity<>(responseBody, HttpStatus.OK);
+        return new ResponseEntity<String>(responseBody, HttpStatus.OK);
     }
 
     // check if 'Accept' header in request contains passed content type
